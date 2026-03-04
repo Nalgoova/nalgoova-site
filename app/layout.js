@@ -1,6 +1,6 @@
 import "./globals.css";
-import Footer from "@/components/footer";
-import CookieBanner from "@/components/CookierBanner";
+import footer from "../components/footer";
+import CookieBanner from "../components/CookierBanner";
 
 export const metadata = {
   title: "Nalgoova Therapeutics",
@@ -12,8 +12,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <Footer />
-        <CookieBanner />
+        <footer />
+        <cookieBanner />
       </body>
     </html>
   );
