@@ -1,5 +1,5 @@
 import "./globals.css";
-import footer from "../components/footer";
+import Footer from "../components/footer";
 import CookieBanner from "../components/CookierBanner";
 
 export const metadata = {
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <footer />
+        <Footer />
         <cookieBanner />
       </body>
     </html>
