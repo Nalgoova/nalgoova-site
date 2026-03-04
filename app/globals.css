@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --daintree:#04222C;
+  --elm:#0F7C83;
+  --orange:#FF5037;
+  --dandelion:#FCDD65;
+  --gum:#B3D6C2;
+  --bg:#fff;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: #0b1220; }
+
+/* Subtle Swiss-medtech background */
+.bg-noise{
+  background-image:
+    radial-gradient(1200px 600px at 80% 10%, rgba(179,214,194,.18), transparent 60%),
+    radial-gradient(900px 520px at 10% 20%, rgba(15,124,131,.14), transparent 60%);
+}
+
+*{ -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+a { text-underline-offset: 3px; }
+
+/* WOW page transitions (View Transitions API) */
+.vt::view-transition-old(root),
+.vt::view-transition-new(root) {
+  animation-duration: 420ms;
+  animation-timing-function: cubic-bezier(0.21, 0.61, 0.35, 1);
+}
+.vt::view-transition-old(root){ animation-name: vt-out; }
+.vt::view-transition-new(root){ animation-name: vt-in; }
+
+@keyframes vt-out {
+  from { opacity: 1; transform: translateY(0px); filter: blur(0px); }
+  to   { opacity: 0; transform: translateY(-10px); filter: blur(8px); }
+}
+@keyframes vt-in {
+  from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0px); filter: blur(0px); }
+}
+@keyframes slow-zoom {
+  0%   { transform: scale(1) translate3d(0,0,0); }
+  100% { transform: scale(1.08) translate3d(-2%, -1%, 0); }
+}
+
+.hero-animated {
+  animation: slow-zoom 18s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Se una persona ha impostato “riduci animazioni” sul computer, non animare */
+@media (prefers-reduced-motion: reduce) {
+  .hero-animated {
+    animation: none !important;
+  }
+}
+/* Elegant fade-in for landing elements */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); filter: blur(6px); }
+  to   { opacity: 1; transform: translateY(0px);  filter: blur(0px); }
+}
+
+.fade-in-1 { animation: fadeUp 0.8s cubic-bezier(0.21,0.61,0.35,1) both; }
+.fade-in-2 { animation: fadeUp 0.8s cubic-bezier(0.21,0.61,0.35,1) both; animation-delay: 0.12s; }
+.fade-in-3 { animation: fadeUp 0.8s cubic-bezier(0.21,0.61,0.35,1) both; animation-delay: 0.24s; }
+.fade-in-4 { animation: fadeUp 0.8s cubic-bezier(0.21,0.61,0.35,1) both; animation-delay: 0.36s; }
+
+/* Luxury logo treatment: subtle glow + crisp */
+.logo-luxury {
+  filter: drop-shadow(0 14px 40px rgba(0,0,0,0.25));
+}
+
+/* Premium “glass” card for form (subtle) */
+.glass-card {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.25);
+}
+
+/* Input styling on dark background */
+.input-dark {
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(255,255,255,0.30);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-1, .fade-in-2, .fade-in-3, .fade-in-4 { animation: none !important; }
+}
